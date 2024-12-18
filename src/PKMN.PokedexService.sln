@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKMN.PokedexService.Applica
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKMN.PokedexService.Domain", "PKMN.PokedexService.Domain\PKMN.PokedexService.Domain.csproj", "{860E8C10-9411-4174-BEE2-D50DB90B5C94}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PKMN.PokedexService.Client", "PKMN.PokedexService.Client\PKMN.PokedexService.Client.csproj", "{1AC39C10-A2E2-4BE1-A078-DFE5839A580D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{860E8C10-9411-4174-BEE2-D50DB90B5C94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{860E8C10-9411-4174-BEE2-D50DB90B5C94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{860E8C10-9411-4174-BEE2-D50DB90B5C94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AC39C10-A2E2-4BE1-A078-DFE5839A580D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AC39C10-A2E2-4BE1-A078-DFE5839A580D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AC39C10-A2E2-4BE1-A078-DFE5839A580D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AC39C10-A2E2-4BE1-A078-DFE5839A580D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
