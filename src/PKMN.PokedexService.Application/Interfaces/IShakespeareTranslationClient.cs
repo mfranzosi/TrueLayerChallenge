@@ -2,7 +2,7 @@
 {
     public interface IShakespeareTranslationClient
     {
-        public Task<string?> GetTranslation(
+        Task<string?> GetTranslation(
             string text,
             CancellationToken cancellationToken = default);
     }

@@ -1,7 +1,7 @@
 using AutoMapper;
 using PKMN.PokedexService.Domain.Entities;
 
-namespace PKMN.PokedexService.Client.Resolvers;
+namespace PKMN.PokedexService.Infrastructure.Resolvers;
 
 public class HabitatResolver : IValueResolver<PokeApiNet.PokemonSpecies, Pokemon, string?>
 {

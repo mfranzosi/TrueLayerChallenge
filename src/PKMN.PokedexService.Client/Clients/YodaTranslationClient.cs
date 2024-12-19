@@ -1,9 +1,10 @@
 ﻿using Newtonsoft.Json.Linq;
 using PKMN.PokedexService.Application.Interfaces;
+using PKMN.PokedexService.Infrastructure.Interfaces;
 
-namespace PKMN.PokedexService.Client.Clients
+namespace PKMN.PokedexService.Infrastructure.Clients
 {
-    public class YodaTranslationClient(HttpClient client) : IYodaTranslationClient
+    public class YodaTranslationClient(IHttpClientWrapper client) : IYodaTranslationClient
     {
         const string URI = "https://api.funtranslations.com/translate/yoda.json";
 
@@ -11,6 +12,12 @@ namespace PKMN.PokedexService.Client.Clients
         {
             var values = new Dictionary<string, string> { { "text", text } };
             var response = await client.PostAsync(URI, new FormUrlEncodedContent(values));
+
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return null;
+            }
+
             var jsonContent = await response.Content.ReadAsStringAsync();
             dynamic dynamicContent = JObject.Parse(jsonContent);
 

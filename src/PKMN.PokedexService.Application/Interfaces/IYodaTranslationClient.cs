@@ -2,7 +2,7 @@
 {
     public interface IYodaTranslationClient
     {
-        public Task<string?> GetTranslation(
+        Task<string?> GetTranslation(
             string text,
             CancellationToken cancellationToken = default);
     }

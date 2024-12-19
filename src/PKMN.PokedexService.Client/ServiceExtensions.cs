@@ -1,6 +1,7 @@
 using PKMN.PokedexService.Application.Interfaces;
-using PKMN.PokedexService.Client;
-using PKMN.PokedexService.Client.Clients;
+using PKMN.PokedexService.Infrastructure.Clients;
+using PKMN.PokedexService.Infrastructure.Interfaces;
+using PKMN.PokedexService.Infrastructure.Wrappers;
 using PokeApiNet;
 using System.Reflection;
 
@@ -14,6 +15,8 @@ public static class ServiceExtensions
 
         services.AddSingleton<HttpClient>();
         services.AddSingleton<PokeApiClient>();
+        services.AddTransient<IPokeApiWrapper, PokeApiWrapper>();
+        services.AddTransient<IHttpClientWrapper, HttpClientWrapper>();
         services.AddTransient<IPokemonClient, PokemonClient>();
         services.AddTransient<IShakespeareTranslationClient, ShakespeareTranslationClient>();
         services.AddTransient<IYodaTranslationClient, YodaTranslationClient>();

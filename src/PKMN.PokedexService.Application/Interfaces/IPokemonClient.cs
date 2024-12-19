@@ -4,7 +4,7 @@ namespace PKMN.PokedexService.Application.Interfaces
 {
     public interface IPokemonClient
     {
-        public Task<Pokemon?> GetPokemonByName(
+        Task<Pokemon?> GetPokemonByName(
             string name,
             CancellationToken cancellationToken = default);
     }

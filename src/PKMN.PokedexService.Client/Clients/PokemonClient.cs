@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
 using PKMN.PokedexService.Application.Interfaces;
+using PKMN.PokedexService.Infrastructure.Interfaces;
 using PokeApiNet;
 
-namespace PKMN.PokedexService.Client.Clients
+namespace PKMN.PokedexService.Infrastructure.Clients
 {
-    public class PokemonClient(PokeApiClient client, IMapper mapper) : IPokemonClient
+    public class PokemonClient(IPokeApiWrapper client, IMapper mapper) : IPokemonClient
     {
         public async Task<Domain.Entities.Pokemon?> GetPokemonByName(string name, CancellationToken cancellationToken = default)
         {

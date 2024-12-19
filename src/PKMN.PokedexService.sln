@@ -9,11 +9,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKMN.PokedexService.Applica
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKMN.PokedexService.Domain", "PKMN.PokedexService.Domain\PKMN.PokedexService.Domain.csproj", "{860E8C10-9411-4174-BEE2-D50DB90B5C94}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKMN.PokedexService.Client", "PKMN.PokedexService.Client\PKMN.PokedexService.Client.csproj", "{1AC39C10-A2E2-4BE1-A078-DFE5839A580D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKMN.PokedexService.Infrastructure", "PKMN.PokedexService.Client\PKMN.PokedexService.Infrastructure.csproj", "{1AC39C10-A2E2-4BE1-A078-DFE5839A580D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{266ACFC0-D5C4-4FF9-B5E4-0B229F2F058E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F909F755-B618-490A-AABB-54D00AC6DA72}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F909F755-B618-490A-AABB-54D00AC6DA72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKMN.PokedexService.Api.Tests", "..\test\PKMN.PokedexService.Api.Tests\PKMN.PokedexService.Api.Tests.csproj", "{6D68951D-1FDE-4B09-B056-064C8821937E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKMN.PokedexService.Application.Tests", "..\test\PKMN.PokedexService.Application.Tests\PKMN.PokedexService.Application.Tests.csproj", "{D4E29724-2A98-49E6-BB42-FEC95B043227}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKMN.PokedexService.Infrastructure.Tests", "..\test\PKMN.PokedexService.Infrastructure.Tests\PKMN.PokedexService.Infrastructure.Tests.csproj", "{A70F9A0A-EC67-4045-8799-BB132CC03EC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,15 +41,26 @@ Global
 		{1AC39C10-A2E2-4BE1-A078-DFE5839A580D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AC39C10-A2E2-4BE1-A078-DFE5839A580D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AC39C10-A2E2-4BE1-A078-DFE5839A580D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D68951D-1FDE-4B09-B056-064C8821937E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D68951D-1FDE-4B09-B056-064C8821937E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D68951D-1FDE-4B09-B056-064C8821937E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D68951D-1FDE-4B09-B056-064C8821937E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4E29724-2A98-49E6-BB42-FEC95B043227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4E29724-2A98-49E6-BB42-FEC95B043227}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4E29724-2A98-49E6-BB42-FEC95B043227}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4E29724-2A98-49E6-BB42-FEC95B043227}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A70F9A0A-EC67-4045-8799-BB132CC03EC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A70F9A0A-EC67-4045-8799-BB132CC03EC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A70F9A0A-EC67-4045-8799-BB132CC03EC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A70F9A0A-EC67-4045-8799-BB132CC03EC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{503C7C54-A417-41BC-A2B9-DF989F4668C7} = {266ACFC0-D5C4-4FF9-B5E4-0B229F2F058E}
-		{4B59FFD7-8260-480E-A78B-45C40E8E164E} = {266ACFC0-D5C4-4FF9-B5E4-0B229F2F058E}
-		{860E8C10-9411-4174-BEE2-D50DB90B5C94} = {266ACFC0-D5C4-4FF9-B5E4-0B229F2F058E}
-		{1AC39C10-A2E2-4BE1-A078-DFE5839A580D} = {266ACFC0-D5C4-4FF9-B5E4-0B229F2F058E}
+		{6D68951D-1FDE-4B09-B056-064C8821937E} = {F909F755-B618-490A-AABB-54D00AC6DA72}
+		{D4E29724-2A98-49E6-BB42-FEC95B043227} = {F909F755-B618-490A-AABB-54D00AC6DA72}
+		{A70F9A0A-EC67-4045-8799-BB132CC03EC0} = {F909F755-B618-490A-AABB-54D00AC6DA72}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {35653CCF-AF0B-4798-A4A8-AE130080F809}

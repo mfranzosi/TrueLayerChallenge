@@ -4,7 +4,7 @@ using PKMN.PokedexService.Domain.Entities;
 
 namespace PKMN.PokedexService.Application.Mappings
 {
-    internal class PokemonProfile : Profile
+    public class PokemonProfile : Profile
     {
         public PokemonProfile()
         {

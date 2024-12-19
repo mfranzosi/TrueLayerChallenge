@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using PKMN.PokedexService.Client.Resolvers;
+using PKMN.PokedexService.Infrastructure.Resolvers;
 using PKMN.PokedexService.Domain.Entities;
 
-namespace PKMN.PokedexService.Application.Mappings
+namespace PKMN.PokedexService.Infrastructure.Mappings
 {
-    internal class PokemonProfile : Profile
+    public class PokemonProfile : Profile
     {
         public PokemonProfile()
         {
