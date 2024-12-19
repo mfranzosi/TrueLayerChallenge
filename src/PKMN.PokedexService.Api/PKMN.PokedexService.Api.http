@@ -1,6 +1,20 @@
-@PKMN.Pokedex.Api_HostAddress = http://localhost:5257
 
-GET {{PKMN.PokedexService.Api_HostAddress}}/weatherforecast/
+https://localhost:32773/pokemon/solgaleo
+Accept: application/json
+
+###
+
+https://localhost:32773/pokemon/translated/lucario
+Accept: application/json
+
+###
+
+https://localhost:32773/pokemon/abcd
+Accept: application/json
+
+###
+
+https://localhost:32773/pokemon/translated/abcd
 Accept: application/json
 
 ###
