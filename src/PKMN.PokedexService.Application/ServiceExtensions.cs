@@ -8,7 +8,6 @@ public static class ServiceExtensions
     {
         var assembly = Assembly.GetExecutingAssembly();
 
-        //services.AddTransient<PokemonClient>();
         services.AddAutoMapper(assembly);
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(assembly));
 

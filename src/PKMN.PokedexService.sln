@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKMN.PokedexService.Applica
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKMN.PokedexService.Domain", "PKMN.PokedexService.Domain\PKMN.PokedexService.Domain.csproj", "{860E8C10-9411-4174-BEE2-D50DB90B5C94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PKMN.PokedexService.Client", "PKMN.PokedexService.Client\PKMN.PokedexService.Client.csproj", "{1AC39C10-A2E2-4BE1-A078-DFE5839A580D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKMN.PokedexService.Client", "PKMN.PokedexService.Client\PKMN.PokedexService.Client.csproj", "{1AC39C10-A2E2-4BE1-A078-DFE5839A580D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{266ACFC0-D5C4-4FF9-B5E4-0B229F2F058E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F909F755-B618-490A-AABB-54D00AC6DA72}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +40,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{503C7C54-A417-41BC-A2B9-DF989F4668C7} = {266ACFC0-D5C4-4FF9-B5E4-0B229F2F058E}
+		{4B59FFD7-8260-480E-A78B-45C40E8E164E} = {266ACFC0-D5C4-4FF9-B5E4-0B229F2F058E}
+		{860E8C10-9411-4174-BEE2-D50DB90B5C94} = {266ACFC0-D5C4-4FF9-B5E4-0B229F2F058E}
+		{1AC39C10-A2E2-4BE1-A078-DFE5839A580D} = {266ACFC0-D5C4-4FF9-B5E4-0B229F2F058E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {35653CCF-AF0B-4798-A4A8-AE130080F809}
