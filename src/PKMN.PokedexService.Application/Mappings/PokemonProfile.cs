@@ -2,13 +2,12 @@
 using PKMN.PokedexService.Application.Dtos;
 using PKMN.PokedexService.Domain.Entities;
 
-namespace PKMN.PokedexService.Application.Mappings
+namespace PKMN.PokedexService.Application.Mappings;
+
+public class PokemonProfile : Profile
 {
-    public class PokemonProfile : Profile
+    public PokemonProfile()
     {
-        public PokemonProfile()
-        {
-            CreateMap<Pokemon, PokemonDto>();
-        }
+        CreateMap<Pokemon, PokemonDto>();
     }
 }

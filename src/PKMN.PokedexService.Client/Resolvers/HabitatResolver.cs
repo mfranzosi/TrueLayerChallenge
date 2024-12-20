@@ -8,6 +8,6 @@ public class HabitatResolver : IValueResolver<PokeApiNet.PokemonSpecies, Pokemon
     public string? Resolve(
         PokeApiNet.PokemonSpecies source,
         Pokemon destination,
-        string? destMember,
+        string? destinationMember,
         ResolutionContext context) => source.Habitat?.Name;
 }

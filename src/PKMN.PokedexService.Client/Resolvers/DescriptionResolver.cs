@@ -8,9 +8,9 @@ public class DescriptionResolver : IValueResolver<PokeApiNet.PokemonSpecies, Pok
     public string Resolve(
         PokeApiNet.PokemonSpecies source,
         Pokemon destination,
-        string destMember,
+        string destinationMember,
         ResolutionContext context) => source.FlavorTextEntries
-                // we use First since we expect at least one description in English for every Pokemon
+                // we use First since we expect at least one description in English for every Pokémon
                 .First(entry => entry.Language.Name.Equals("en", StringComparison.InvariantCultureIgnoreCase))
                 .FlavorText;
 }

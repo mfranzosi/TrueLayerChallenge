@@ -7,17 +7,15 @@ using PKMN.PokedexService.Application.UseCases.GetPokemonTranslated;
 namespace PKMN.PokedexService.Api.Controllers
 {
     [ApiController]
-    public class PokemonController : ControllerBase
+    public class PokemonController(ILogger<PokemonController> logger, IMediator mediator) : ControllerBase
     {
-        private readonly ILogger<PokemonController> _logger;
-        private readonly IMediator _mediator;
 
-        public PokemonController(ILogger<PokemonController> logger, IMediator mediator)
-        {
-            _logger = logger;
-            _mediator = mediator;
-        }
-
+        /// <summary>
+        /// Gets information about a Pokemon by its name.
+        /// </summary>
+        /// <param name="name">The name of the Pokemon.</param>
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        /// <returns>The information about the Pokemon.</returns>
         [HttpGet("pokemon/{name}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
@@ -30,7 +28,7 @@ namespace PKMN.PokedexService.Api.Controllers
                 Name = name
             };
 
-            var result = await _mediator.Send(query, cancellationToken);
+            var result = await mediator.Send(query, cancellationToken);
 
             if (result is null)
             {
@@ -42,6 +40,12 @@ namespace PKMN.PokedexService.Api.Controllers
             }
         }
 
+        /// <summary>
+        /// Gets information about a Pokemon by its name, including a funny translated description.
+        /// </summary>
+        /// <param name="name">The name of the Pokemon.</param>
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        /// <returns>The information about the Pokemon.</returns>
         [HttpGet("pokemon/translated/{name}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
@@ -54,7 +58,7 @@ namespace PKMN.PokedexService.Api.Controllers
                 Name = name
             };
 
-            var result = await _mediator.Send(query, cancellationToken);
+            var result = await mediator.Send(query, cancellationToken);
 
             if (result is not null)
             {

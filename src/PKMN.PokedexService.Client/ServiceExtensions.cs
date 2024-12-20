@@ -1,9 +1,10 @@
 using PKMN.PokedexService.Application.Interfaces;
-using PKMN.PokedexService.Infrastructure.Clients;
 using PKMN.PokedexService.Infrastructure.Interfaces;
 using PKMN.PokedexService.Infrastructure.Wrappers;
 using PokeApiNet;
 using System.Reflection;
+using PKMN.PokedexService.Infrastructure.Clients.Pokemon;
+using PKMN.PokedexService.Infrastructure.Clients.Translation;
 
 namespace Microsoft.Extensions.DependencyInjection;
 

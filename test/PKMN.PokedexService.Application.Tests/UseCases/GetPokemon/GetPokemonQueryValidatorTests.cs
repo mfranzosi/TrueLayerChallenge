@@ -2,97 +2,96 @@
 using FluentAssertions;
 using PKMN.PokedexService.Application.UseCases.GetPokemon;
 
-namespace PKMN.PokedexService.Application.Tests.UseCases.GetPokemon
+namespace PKMN.PokedexService.Application.Tests.UseCases.GetPokemon;
+
+public class GetPokemonQueryValidatorTests
 {
-    public class GetPokemonQueryValidatorTests
+    private readonly GetPokemonQueryValidator _getPokemonQueryValidator;
+
+    private const string NotEmptyValidatorName = "NotEmptyValidator";
+
+    private const string NamePropertyName
+        = nameof(GetPokemonQuery.Name);
+
+    public GetPokemonQueryValidatorTests()
     {
-        private readonly GetPokemonQueryValidator _getPokemonQueryValidator;
+        _getPokemonQueryValidator = new GetPokemonQueryValidator();
+    }
 
-        private const string NotEmptyValidatorName = "NotEmptyValidator";
-
-        private const string NamePropertyName
-            = nameof(GetPokemonQuery.Name);
-
-        public GetPokemonQueryValidatorTests()
+    [Fact]
+    public void Should_Validate_True_Because_All_Ok()
+    {
+        //Arrange
+        var query = new GetPokemonQuery
         {
-            _getPokemonQueryValidator = new GetPokemonQueryValidator();
-        }
+            Name = AutoFaker.Generate<string>()
+        };
 
-        [Fact]
-        public void Should_Validate_True_Because_All_Ok()
+        //Act
+        var result = _getPokemonQueryValidator.Validate(query);
+
+        //Assert
+        result.IsValid.Should().BeTrue();
+        result.Errors.Should().BeEmpty();
+    }
+
+    [Fact]
+    public void Should_Validate_False_Because_Name_Is_Null()
+    {
+        //Arrange
+        var query = new GetPokemonQuery
         {
-            //Arrange
-            var query = new GetPokemonQuery
-            {
-                Name = AutoFaker.Generate<string>()
-            };
+            Name = null!
+        };
 
-            //Act
-            var result = _getPokemonQueryValidator.Validate(query);
+        //Act
+        var result = _getPokemonQueryValidator.Validate(query);
 
-            //Assert
-            result.IsValid.Should().BeTrue();
-            result.Errors.Should().BeEmpty();
-        }
-
-        [Fact]
-        public void Should_Validate_False_Because_Name_Is_Null()
+        //Assert
+        result.IsValid.Should().BeFalse();
+        result.Errors.Should().ContainSingle();
+        var first = result.Errors[0];
+        first.PropertyName.Should().Be(NamePropertyName);
+        first.ErrorCode.Should().Be(NotEmptyValidatorName);
+    }
+    
+    [Fact]
+    public void Should_Validate_False_Because_Name_Is_Empty()
+    {
+        //Arrange
+        var query = new GetPokemonQuery
         {
-            //Arrange
-            var query = new GetPokemonQuery
-            {
-                Name = null!
-            };
+            Name = string.Empty
+        };
 
-            //Act
-            var result = _getPokemonQueryValidator.Validate(query);
+        //Act
+        var result = _getPokemonQueryValidator.Validate(query);
 
-            //Assert
-            result.IsValid.Should().BeFalse();
-            result.Errors.Should().ContainSingle();
-            var first = result.Errors[0];
-            first.PropertyName.Should().Be(NamePropertyName);
-            first.ErrorCode.Should().Be(NotEmptyValidatorName);
-        }
-        
-        [Fact]
-        public void Should_Validate_False_Because_Name_Is_Empty()
+        //Assert
+        result.IsValid.Should().BeFalse();
+        result.Errors.Should().ContainSingle();
+        var first = result.Errors[0];
+        first.PropertyName.Should().Be(NamePropertyName);
+        first.ErrorCode.Should().Be(NotEmptyValidatorName);
+    }
+
+    [Fact]
+    public void Should_Validate_False_Because_Name_Is_WhiteSpace()
+    {
+        //Arrange
+        var query = new GetPokemonQuery
         {
-            //Arrange
-            var query = new GetPokemonQuery
-            {
-                Name = string.Empty
-            };
+            Name = new string(' ', 5)
+        };
 
-            //Act
-            var result = _getPokemonQueryValidator.Validate(query);
+        //Act
+        var result = _getPokemonQueryValidator.Validate(query);
 
-            //Assert
-            result.IsValid.Should().BeFalse();
-            result.Errors.Should().ContainSingle();
-            var first = result.Errors[0];
-            first.PropertyName.Should().Be(NamePropertyName);
-            first.ErrorCode.Should().Be(NotEmptyValidatorName);
-        }
-
-        [Fact]
-        public void Should_Validate_False_Because_Name_Is_WhiteSpace()
-        {
-            //Arrange
-            var query = new GetPokemonQuery
-            {
-                Name = new string(' ', 5)
-            };
-
-            //Act
-            var result = _getPokemonQueryValidator.Validate(query);
-
-            //Assert
-            result.IsValid.Should().BeFalse();
-            result.Errors.Should().ContainSingle();
-            var first = result.Errors[0];
-            first.PropertyName.Should().Be(NamePropertyName);
-            first.ErrorCode.Should().Be(NotEmptyValidatorName);
-        }
+        //Assert
+        result.IsValid.Should().BeFalse();
+        result.Errors.Should().ContainSingle();
+        var first = result.Errors[0];
+        first.PropertyName.Should().Be(NamePropertyName);
+        first.ErrorCode.Should().Be(NotEmptyValidatorName);
     }
 }

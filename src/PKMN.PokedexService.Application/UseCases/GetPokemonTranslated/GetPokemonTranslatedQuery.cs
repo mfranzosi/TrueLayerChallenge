@@ -5,5 +5,5 @@ namespace PKMN.PokedexService.Application.UseCases.GetPokemonTranslated;
 
 public record GetPokemonTranslatedQuery : IRequest<PokemonDto>
 {
-    public required string Name { get; set; }
+    public required string Name { get; init; }
 }

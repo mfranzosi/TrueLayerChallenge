@@ -2,8 +2,7 @@ using FluentValidation;
 
 namespace PKMN.PokedexService.Application.UseCases.GetPokemon;
 
-public class GetPokemonQueryValidator : AbstractValidator<
-    GetPokemonQuery>
+public class GetPokemonQueryValidator : AbstractValidator<GetPokemonQuery>
 {
     public GetPokemonQueryValidator()
     {

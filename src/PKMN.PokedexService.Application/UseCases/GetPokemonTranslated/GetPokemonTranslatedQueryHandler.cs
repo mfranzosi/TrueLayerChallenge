@@ -25,13 +25,17 @@ public class GetPokemonTranslatedQueryHandler(
             return null;
         }
 
-        await TryTranslateDescription(pokemon);
+        var translatedDescription = await GetTranslatedDescription(pokemon);
+        if (!string.IsNullOrWhiteSpace(translatedDescription))
+        {
+            pokemon.Description = translatedDescription;
+        }
 
         var result = mapper.Map<PokemonDto>(pokemon);
         return result;
     }
 
-    private async Task TryTranslateDescription(Pokemon pokemon)
+    private async Task<string?> GetTranslatedDescription(Pokemon pokemon)
     {
         string? translatedDescription = null;
 
@@ -45,16 +49,16 @@ public class GetPokemonTranslatedQueryHandler(
             {
                 translatedDescription = await shakespeareTranslationClient.GetTranslation(pokemon.Description);
             }
-
-            if (string.IsNullOrWhiteSpace(translatedDescription)) { return; }
-            pokemon.Description = translatedDescription;
         }
         catch (Exception exception)
         {
-            logger.Log(LogLevel.Warning, "Translation for description '{description}' failed: {message}", pokemon.Description, exception);
+            // TODO LogLevel
+            logger.Log(LogLevel.Warning, exception, "Translation for description '{description}' failed", pokemon.Description);
         }
+
+        return translatedDescription;
     }
 
-    private bool ShouldUseYodaTranslation(Pokemon pokemon) =>
+    private static bool ShouldUseYodaTranslation(Pokemon pokemon) =>
         pokemon.IsLegendary || string.Equals(pokemon.Habitat, "cave", StringComparison.InvariantCultureIgnoreCase);
 }
