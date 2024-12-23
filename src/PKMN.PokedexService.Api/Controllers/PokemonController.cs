@@ -6,8 +6,12 @@ using PKMN.PokedexService.Application.UseCases.GetPokemonTranslated;
 
 namespace PKMN.PokedexService.Api.Controllers
 {
+    /// <summary>
+    /// This controller defines Pokémon endpoints for Pokédex Service. 
+    /// </summary>
+    /// <param name="mediator">A mediator that encapsulates request/response.</param>
     [ApiController]
-    public class PokemonController(ILogger<PokemonController> logger, IMediator mediator) : ControllerBase
+    public class PokemonController(IMediator mediator) : ControllerBase
     {
 
         /// <summary>
@@ -62,7 +66,6 @@ namespace PKMN.PokedexService.Api.Controllers
 
             if (result is not null)
             {
-
                 return Ok(result);
             }
             else

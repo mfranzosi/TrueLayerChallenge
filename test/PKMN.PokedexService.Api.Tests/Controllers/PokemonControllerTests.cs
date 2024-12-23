@@ -23,7 +23,7 @@ public class PokemonControllerTests
     {
         _logger = Substitute.For<ILogger<PokemonController>>();
         _mediator = Substitute.For<IMediator>();
-        _pokemonController = new PokemonController(_logger, _mediator);
+        _pokemonController = new PokemonController(_mediator);
     }
 
     [Fact]

@@ -52,7 +52,9 @@ public class GetPokemonTranslatedQueryHandler(
         }
         catch (Exception exception)
         {
-            // TODO LogLevel
+            // Set this LogLevel as Warning, since we consider this case as unexpected.
+            // This could happen for several reasons, like Translation Service being down, exceeded number of requests,
+            // or a too long/invalid text being sent.
             logger.Log(LogLevel.Warning, exception, "Translation for description '{description}' failed", pokemon.Description);
         }
 

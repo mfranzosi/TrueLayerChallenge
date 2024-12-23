@@ -1,5 +1,4 @@
-using Microsoft.Extensions.Configuration;
-using PKMN.PokedexService.Application;
+using PKMN.PokedexService.Api;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,16 +6,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
+builder.Services.AddSwaggerGen(options =>
 {
-    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory,
+    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory,
     $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"));
 });
 
 builder.Services.AddApplication(builder.Configuration);
-builder.Services.AddClient();
+builder.Services.AddInfrastructure();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
 
 var app = builder.Build();
 
@@ -26,6 +26,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseExceptionHandler();
 
 app.UseHttpsRedirection();
 

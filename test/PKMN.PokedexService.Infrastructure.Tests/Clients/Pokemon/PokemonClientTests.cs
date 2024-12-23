@@ -1,6 +1,7 @@
 ﻿using AutoBogus;
 using AutoMapper;
 using FluentAssertions;
+using Microsoft.Extensions.Logging;
 using NSubstitute;
 using NSubstitute.ExceptionExtensions;
 using PKMN.PokedexService.Infrastructure.Clients.Pokemon;
@@ -15,15 +16,17 @@ public class PokemonClientTests
     private readonly IMapper _mapper;
     private readonly PokemonClient _pokemonClient;
     private readonly IPokeApiWrapper _pokeApiClient;
+    private readonly ILogger<PokemonClient> _logger;
 
     public PokemonClientTests()
     {
         _pokeApiClient = Substitute.For<IPokeApiWrapper>();
+        _logger = Substitute.For<ILogger<PokemonClient>>();
 
         var mapperConfiguration = new MapperConfiguration(cfg =>
            cfg.AddProfile(new PokemonProfile()));
         _mapper = mapperConfiguration.CreateMapper();
-        _pokemonClient = new PokemonClient(_pokeApiClient, _mapper);
+        _pokemonClient = new PokemonClient(_pokeApiClient, _mapper, _logger);
     }
 
     [Fact]
