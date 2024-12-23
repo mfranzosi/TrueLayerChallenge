@@ -13,13 +13,13 @@ Docker pull massimofranzosi/pokedexapi
 docker run -p 8080 -p 8081 -d massimofranzosi/pokedexapi
 ```
 
-- Check if the container is running and the dynamically assigned ports:
+- Check if the container is running, and which are the dynamically assigned ports with the following command:
 
 ```
 docker ps
 ```
 
-- Open a browser the following sample queries, being careful of specifying the assigned port:
+- Open a browser and enter the following sample queries, being careful of specifying the assigned port:
 
 ```
 http://localhost:{your_http_port}/pokemon/charizard´
